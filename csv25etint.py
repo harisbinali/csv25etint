@@ -29,12 +29,15 @@ with open(options.csvfilename, 'r') as csvfile:
 		set.write("stylesheet: "+ options.classstylesheet + "\n")
 
 		for row in reader:
+			ruletext = row["rule text"].decode('string_escape')
+			overpower = row["overpower"].decode('string_escape')
+			
 			set.write("card:\n")
 			set.write("\thas styling: false\n")
 			set.write("\tcard color: " + row["card color"] + "\n")
 			set.write("\tname: " + row["name"] + "\n")
-			set.write("\trule text: " + row["rule text"] + "\n")
-			set.write("\toverpower: "  + row["overpower"] + "\n")
+			set.write("\trule text: " + ruletext + "\n")
+			set.write("\toverpower: "  + overpower + "\n")
 			set.write("\tlevel: " + row["level"] + "\n")
 			set.write("\tschool: " + row["school"] + "\n")
 			set.write("\taction: " + row["action"] + "\n")
